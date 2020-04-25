@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+
+import { Cards, Chart, CountryPicker } from './components'
+import styles from './App.module.css'
+import { fetchData } from './api'
 
 function App() {
+
+  useEffect(() => {
+    const data = async () => {
+      let response = await fetchData()
+      console.log(response)
+    }
+    data()
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.container}>
+      <Cards />
+      <CountryPicker />
+      <Chart />
     </div>
   );
 }
