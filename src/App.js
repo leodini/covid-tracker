@@ -9,8 +9,7 @@ function App() {
 
   useEffect(() => {
     const apiCall = async () => {
-      let response = await fetchData()
-      setData(response)
+      setData(await fetchData())
     }
     apiCall()
   }, [])

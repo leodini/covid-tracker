@@ -13,4 +13,20 @@ const fetchData = async() => {
     }
 }
 
-export { fetchData }
+const fetchDailyData = async() => {
+    try {
+        const { data } = await api.get('daily')
+
+        const modifiedData = data.map((dailyData) => ({
+            confirmed: dailyData.confirmed.total,
+            deaths: dailyData.deaths.total,
+            date: dailyData.reportDate
+        }))
+        
+        return modifiedData
+    } catch(error) {
+        console.log(error)
+    }
+}
+
+export { fetchData, fetchDailyData }
