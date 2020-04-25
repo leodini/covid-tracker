@@ -7,13 +7,7 @@ const api = axios.create({
 const fetchData = async() => {
     try{
         const { data: { confirmed, recovered, deaths, lastUpdate} } = await api.get('')
-        const modifiedData = {
-            confirmed,
-            recovered,
-            deaths,
-            lastUpdate
-        }
-        return modifiedData
+        return { confirmed, recovered, deaths, lastUpdate }
     } catch(error) {
         console.log(error)
     }
