@@ -13,7 +13,6 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchApiData())
-    console.log(data)
   }, [])
 
   const handleCountryChange = async(country) => {
