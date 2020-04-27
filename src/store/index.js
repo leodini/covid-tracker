@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import dataReducer from './ducks/dataReducer'
-import countryReducer from './ducks/countryReducer'
+import { dataReducer, countryReducer } from './ducks'
 
 export default configureStore({
     reducer: {
